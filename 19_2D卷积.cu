@@ -12,7 +12,6 @@ __global__ void conv_kernel(const float* input,const float* kernel,float* output
         {
             for(int j =0;j<kernel_cols;j++)
             {
-                
                 int num_row = output_row+i;
                 int num_col = output_col+j;
                 sum += input[num_row*input_cols+num_col]*kernel[i*kernel_cols+j];
