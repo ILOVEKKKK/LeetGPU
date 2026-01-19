@@ -30,7 +30,9 @@ __global__ void sigmoid_kernel(const float *z, float *p, int N)
 }
 
 //求梯度算子
-__global__ void gradient_kernel()
+__global__ void gradient_kernel(const float *X, const float *p, const float *y,
+                                 const float *beta, float *gradient,
+                                 int n_samples, int n_features, float lambda)
 
 // X, y, beta are device pointers
 extern "C" void solve(const float* X, const float* y, float* beta, int n_samples, int n_features) {}
