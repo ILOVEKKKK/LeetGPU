@@ -1,8 +1,9 @@
 #include <cuda_runtime.h>
 
-__global__ void sorting_kernel(float* data,int N)
+__global__ void bitonic_sorting_kernel(float* data,int N)
 {
-    
+    int global_tid = blockDim.x*blockIdx.x+threadIdx.x;
+    int ixj = 
 }
 
 
