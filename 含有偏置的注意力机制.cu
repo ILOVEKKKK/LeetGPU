@@ -183,6 +183,7 @@ extern "C" void solve(const float* Q, const float* K, const float* V, float* out
     cudaDeviceSynchronize();
 
     //step2:计算QKT
+    blocksPerGrid.x = (N+threadsPerBlock.x-1)/threadsPerBlock.x;
     blocksPerGrid.y = (M+threadsPerBlock.y-1)/threadsPerBlock.y;
     float* Q_K_T = NULL;
     cudaMalloc(&Q_K_T,M*N*sizeof(float));
