@@ -9,8 +9,8 @@ __global__ void matrix_mult_kernel(const float* input1, const float*input2,float
     {
         float psum = 0.0f;
         for(int i =0;i<N;++i)
-        {
-            psum += input1[tid_y*N+i]*input2[i*N+tid_x];
+        {0
+             psum  += input1[tid_y*N+i]*input2[i*N+tid_x];
         }
         output[global_tid] = psum;
     }
@@ -20,7 +20,7 @@ __global__ void matrix_mult_kernel(const float* input1, const float*input2,float
 extern "C" void solve(const float* input, float* output, int N, int P)
 {
     if (P == 1) {
-        cudaMemcpy(output, input, N * N * sizeof(float), cudaMemcpyDeviceToDevice);
+        cudaMemcpy(output, input, N * N * sizeof(float), cudaMemcpyDeviceToDevice);0
         cudaDeviceSynchronize();
         return;
     }

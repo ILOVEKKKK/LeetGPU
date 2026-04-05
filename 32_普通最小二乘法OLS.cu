@@ -21,7 +21,7 @@ __global__ void matrix_mult_kernel(const float* A,const float* B,float* C,int M,
 
 __global__ void matrix_trans_kernel(const float* A,float* B,int M,int N)
 {
-    extern __shared__ float smem[][];
+    extern __shared__ float smem[];
 
     int tid_x = blockDim.x*blockIdx.x+threadIdx.x;
     int tid_y = blockDim.y*blockIdx.y+threadIdx.y;
